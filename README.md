@@ -1,9 +1,9 @@
-  # Image Manager
-A python web scraping script that takes in a movie name as input and outputs various information about the movie.
+  # Image Manager App
+A GUI application that can view images from a folder and manages them.
 
 # Features include:
 - Rename image
-- Delete files; moves image to the recycle bin
+- Delete image; moves image to the recycle bin
 - Move image
 
  # Installation
