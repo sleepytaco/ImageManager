@@ -2,7 +2,7 @@
 A simple GUI application that can view images from a folder and manage them. Made with python3 using tkinter.
 
 # Features include:
-- Navigate through all images from a folder; shows image name and the image position in the folder
+- Navigate through all images from a folder; can naviagte using arrow keys; shows image name and the image position in the folder
 - Rename image; adds a number at the end if an image file with similar name already exists in the same folder
 - Move image to another specified folder; adds a number at the end if a similar name image file exists in the destination folder
 - Delete image; moves image to the recycle bin
