@@ -22,7 +22,7 @@ def get_image_names(folder):
     images = []
     for filename in os.listdir('.'):
         if filename.endswith('.png') or filename.endswith('.jpg') or filename.endswith('.jpeg') or filename.endswith(
-                '.gif'):
+                '.gif') or filename.endswith('.tiff') or filename.endswith('.webp') or filename.endswith('.bmp'):
             images.append(filename)
 
 
@@ -169,6 +169,8 @@ def move_image():
     shutil.move(Path(current_folder.replace('/', '//')) / images[image_position],
                 Path(move_to.replace('/', '//')) / renamed_image_file)
 
+    app.wm_attributes("-disabled", True)  # freezes the window
+
     # updates the images list
     images.remove(images[image_position])
     try:  # moves to the next image in list
@@ -180,6 +182,8 @@ def move_image():
         label_move_status.after(2000, lambda: refresh_status('move'))
         return
     open_image('next')
+
+    app.wm_attributes("-disabled", False)  # unfreezes the window after the images list is updated
 
     label_move_status.after(5000, lambda: refresh_status('move'))
 
@@ -202,6 +206,8 @@ def delete_image():
     label_delete_status['fg'] = 'orange'
     label_delete_status['text'] = 'Sent to recycle bin!'
 
+    app.wm_attributes("-disabled", True)  # freezes the window
+
     # update images list
     images.remove(images[image_position])
     try:  # moves the next image in list if found
@@ -213,6 +219,8 @@ def delete_image():
         label_move_status.after(2000, lambda: refresh_status('delete'))
         return
     open_image('next')
+
+    app.wm_attributes("-disabled", False)  # unfreezes the window after the images list is updated
 
     label_delete_status.after(2000, lambda: refresh_status('delete'))
 
