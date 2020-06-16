@@ -19,5 +19,7 @@ pip install send2trash
 # Screenshots
 
 ### Initial Screen
+![screenshot 1](ImageManager_sc1.png?raw=true)
 
 ### General Screen 
+![screenshot 2](ImageManager_sc2.png?raw=true)
