@@ -315,13 +315,21 @@ def spaceBar(event):
     os.system(f'"{images[image_position]}"')
 
 
+def shiftKey(event):
+    global current_folder
+    current_folder = current_folder.replace("/", "\\")
+    print(current_folder)
+    os.system(r'start %windir%\explorer.exe' + rf' "{current_folder}"')
+
+
 app = tk.Tk()  # app window
 app.title("Image Manager")
 
 app.bind('<Left>', leftKey)
 app.bind('<Right>', rightKey)
-app.bind('<Return>', enterKey)
-app.bind('<space>', spaceBar)
+app.bind('<Return>', enterKey)  # enter key - renames image
+app.bind('<space>', spaceBar)  # space bar - opens image
+app.bind('<Shift_L>', shiftKey)  # any shift key - opens image folder
 
 ##### ALL THE WIDGETS IN OUR APP GOES IN HERE #####
 canvas = Canvas(app, height=HEIGHT, width=WIDTH)
@@ -412,6 +420,7 @@ button_quit.place(relx=0, rely=0.91, relwidth=1, relheight=0.1)
 
 messagebox.showinfo("Keyboard Shorcuts", "Following shortcuts are available:\n"
                                          "\nSPACE BAR - Opens image"
+                                         "\nSHIFT KEY - Opens image folder"
                                          "\nRIGHT ARROW - Moves to next image if available"
                                          "\nLEFT ARROW - Moves to previous image if available"
                                          "\nENTER KEY - Renames image if available")
