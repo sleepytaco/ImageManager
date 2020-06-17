@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import *
 from tkinter.filedialog import askdirectory
+from tkinter import messagebox
 import os
 from PIL import Image, ImageTk
 from pathlib import Path
@@ -308,12 +309,19 @@ def enterKey(event):
     rename_image()
 
 
+def spaceBar(event):
+    global images, image_position
+    os.chdir(Path(current_folder))
+    os.system(f'"{images[image_position]}"')
+
+
 app = tk.Tk()  # app window
 app.title("Image Manager")
 
 app.bind('<Left>', leftKey)
 app.bind('<Right>', rightKey)
 app.bind('<Return>', enterKey)
+app.bind('<space>', spaceBar)
 
 ##### ALL THE WIDGETS IN OUR APP GOES IN HERE #####
 canvas = Canvas(app, height=HEIGHT, width=WIDTH)
@@ -401,5 +409,11 @@ button_change_destination.place(relx=0.73, rely=0.64, relheight=0.2, anchor=NW)
 button_quit = Button(manage_image_frame, text='QUIT APP', bg='#E73927', command=app.quit)
 button_quit.place(relx=0, rely=0.91, relwidth=1, relheight=0.1)
 ##### END MOVE IMAGE FRAME #####
+
+messagebox.showinfo("Keyboard Shorcuts", "Following shortcuts are available:\n"
+                                         "\nSPACE BAR - Opens image"
+                                         "\nRIGHT ARROW - Moves to next image if available"
+                                         "\nLEFT ARROW - Moves to previous image if available"
+                                         "\nENTER KEY - Renames image if available")
 
 app.mainloop()  # runs main application window
