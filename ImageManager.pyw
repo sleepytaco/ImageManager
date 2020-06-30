@@ -309,7 +309,7 @@ def enterKey(event):
     rename_image()
 
 
-def spaceBar(event):
+def upKey(event):
     global images, image_position
     os.chdir(Path(current_folder))
     os.system(f'"{images[image_position]}"')
@@ -328,7 +328,7 @@ app.title("Image Manager")
 app.bind('<Left>', leftKey)
 app.bind('<Right>', rightKey)
 app.bind('<Return>', enterKey)  # enter key - renames image
-app.bind('<space>', spaceBar)  # space bar - opens image
+app.bind('<Up>', upKey)  # Up key - opens image
 app.bind('<Shift_L>', shiftKey)  # any shift key - opens image folder
 
 ##### ALL THE WIDGETS IN OUR APP GOES IN HERE #####
@@ -419,7 +419,7 @@ button_quit.place(relx=0, rely=0.91, relwidth=1, relheight=0.1)
 ##### END MOVE IMAGE FRAME #####
 
 messagebox.showinfo("Keyboard Shorcuts", "Following shortcuts are available:\n"
-                                         "\nSPACE BAR - Opens image"
+                                         "\nUP ARROW - Opens image"
                                          "\nSHIFT KEY - Opens image folder"
                                          "\nRIGHT ARROW - Moves to next image if available"
                                          "\nLEFT ARROW - Moves to previous image if available"
