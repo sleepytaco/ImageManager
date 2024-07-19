@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ImageManager"
+version = "0.1.0"
+description = "A GUI application that can view images from a folder and manage them. Made with python3 using tkinter."
+authors = ["Mohammed Khan <abukhan363@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pillow = "^10.4.0"
+Send2Trash = "^1.8.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
